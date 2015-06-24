@@ -1,0 +1,36 @@
+# Enchantments
+#
+# Potions
+#
+# Music dicks
+record.celticdream.name=Music Disc
+item.record.celticdream.desc=Celtic Dream
+
+record.deadlytheme.name=Music Disc
+item.record.deadlytheme.desc=Deadly Theme
+
+record.aeyolio.name=Music Disc
+item.record.aeyolio.desc=Aeyolio
+
+record.keepsake.name=Music Disc
+item.record.keepsake.desc=Keepsake?..A lie!
+#
+# Tiles
+#
+# Entities
+#
+# Blocks
+tile.blockDebug.name=Debug Block
+#
+# Items
+item.itemDebug.name=Debug Item
+
+item.itemCoordinationMatrix.name=Coordination Matrix
+#
+# Fluids
+#
+# GUI
+#
+# Other
+itemGroup.AnimatronicaCreativeTab=Animatronica
+#
