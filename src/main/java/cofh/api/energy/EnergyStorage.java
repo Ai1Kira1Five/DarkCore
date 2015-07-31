@@ -17,7 +17,7 @@ public class EnergyStorage implements IEnergyStorage {
 
 	public EnergyStorage(int capacity) {
 
-		this(capacity, capacity, capacity);
+		this(capacity,capacity, capacity);
 	}
 
 	public EnergyStorage(int capacity, int maxTransfer) {

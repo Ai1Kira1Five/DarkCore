@@ -1,8 +1,6 @@
-package net.bioace.darkcore.Container;
+package net.bioace.darkcore.TestEnergy;
 
-import net.bioace.darkcore.TileEntity.TEGrinder;
-import net.bioace.darkcore.gui.TEFurnace;
-import net.minecraft.entity.Entity;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -10,14 +8,14 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 
 /**
- * Created by BIOACE on 09.05.2015.
+ * Created by BIOACE on 10.07.2015.
  */
-public class ContainerFurnace extends Container {
-    TEFurnace furnace;
-    public ContainerFurnace(InventoryPlayer inventory, TEFurnace entity){
-        this.furnace=entity;
+public class ContainerMagicBlock extends Container {
+    TEMagicBlock MagicBlock;
+    public ContainerMagicBlock(InventoryPlayer inventory, TEMagicBlock entity){
+        this.MagicBlock=entity;
         this.addSlotToContainer(new Slot(entity, 0, 50, 35));
-        this.addSlotToContainer(new SlotFurnace(inventory.player, entity, 1, 116, 35));
+
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 9; j++){
                 this.addSlotToContainer(new Slot(inventory, j + i*9 + 9, 8 + j*18, 84 + i*18));
@@ -32,4 +30,5 @@ public class ContainerFurnace extends Container {
     public boolean canInteractWith(EntityPlayer player) {
         return true;
     }
+
 }

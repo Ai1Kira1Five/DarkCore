@@ -1,23 +1,19 @@
-package net.bioace.darkcore.gui;
+package net.bioace.darkcore.TestEnergy;
 
-import cofh.api.energy.EnergyStorage;
-import cofh.api.energy.IEnergyHandler;
-import cofh.api.energy.IEnergyStorage;
+import net.bioace.darkcore.Api.MagicEnergy.MagicEnergy;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraftforge.common.util.ForgeDirection;
 
 /**
- * Created by BIOACE on 09.05.2015.
+ * Created by BIOACE on 10.07.2015.
  */
-public class TEFurnace extends TileEntity implements ISidedInventory, IEnergyHandler {
-
-    public EnergyStorage storage = new EnergyStorage(32000,256,32000);
+public class TEMagicBlock extends TileEntity implements ISidedInventory{
     private ItemStack[] slots = new ItemStack[4];
+    public MagicEnergy storage = new MagicEnergy(100);
 
 
     @Override
@@ -101,7 +97,7 @@ public class TEFurnace extends TileEntity implements ISidedInventory, IEnergyHan
 
     @Override
     public boolean isUseableByPlayer(EntityPlayer player) {
-            return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : player.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
     }
 
     @Override
@@ -116,7 +112,7 @@ public class TEFurnace extends TileEntity implements ISidedInventory, IEnergyHan
 
     @Override
     public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-     return false;
+        return false;
     }
 
     @Override
@@ -156,39 +152,5 @@ public class TEFurnace extends TileEntity implements ISidedInventory, IEnergyHan
         storage.writeToNBT(nbt);
 
 
-    }
-
-    /* IEnergyConnection */
-    @Override
-    public boolean canConnectEnergy(ForgeDirection from) {
-
-        return true;
-    }
-
-    /* IEnergyReceiver */
-    @Override
-    public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
-
-        return storage.receiveEnergy(maxReceive, simulate);
-    }
-
-    /* IEnergyProvider */
-    @Override
-    public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate) {
-
-        return storage.extractEnergy(maxExtract, simulate);
-    }
-
-    /* IEnergyReceiver and IEnergyProvider */
-    @Override
-    public int getEnergyStored(ForgeDirection from) {
-
-        return storage.getEnergyStored();
-    }
-
-    @Override
-    public int getMaxEnergyStored(ForgeDirection from) {
-
-        return storage.getMaxEnergyStored();
     }
 }

@@ -6,10 +6,12 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.bioace.darkcore.gui.GuiHandler;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
 
 
 @Mod(modid = DarkCore.MOD_ID,version = DarkCore.VERSION)
@@ -23,8 +25,10 @@ public class DarkCore {
             return Items.saddle;
         }
     };
-	
-	@Mod.Instance
+
+
+
+    @Mod.Instance
 	public static DarkCore instance;
    // @SidedProxy(clientSide = "net.bioace.darkcore.ClientProxy", serverSide = "net.bioace.darkcore.CommonProxy")
    // public static CommonProxy proxy;
@@ -32,6 +36,7 @@ public class DarkCore {
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event){
+        MinecraftForge.EVENT_BUS.register(new Event_Handler());
       Content.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 
@@ -39,7 +44,7 @@ public class DarkCore {
 	
 	@Mod.EventHandler
 	public void Init(FMLInitializationEvent event){
-
+        GameRegistry.registerWorldGenerator(new WorldGen(), 0);
 
 	}
 	

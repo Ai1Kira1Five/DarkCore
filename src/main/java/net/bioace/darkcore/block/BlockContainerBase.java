@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 /**
@@ -31,7 +32,19 @@ public class BlockContainerBase extends BlockContainer {
     protected BlockContainerBase(String name) {
         super(Material.iron);
         this.name=name;
+        setCreativeTab(DarkCore.tab);
     }
+
+    @Override
+    public String getLocalizedName() {
+        return StatCollector.translateToLocal(getUnlocalizedName());
+    }
+
+    @Override
+    public String getUnlocalizedName() {
+        return DarkCore.MOD_ID.toLowerCase()+".block."+name;
+    }
+
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister){
         this.iconSide = iconRegister.registerIcon(DarkCore.MOD_ID + ":" +name+"Side");
