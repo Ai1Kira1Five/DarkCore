@@ -1,2 +1,4 @@
-darkcore.tab=First Test Tab
-darkcore.test=First Test Item
+itemGroup.DarkCore=First Test Tab
+darkcore.DebugWorldGen=Debug Item for WorldGen
+darkcore.TestItem=Test Item
+darkcore.block.TestBlock.name=Test Block

@@ -71,7 +71,8 @@ public class WorldGen  implements IWorldGenerator {
 
 
     public boolean can_gen(World world, Random random, int x, int y, int z){
-        if (world.getBlock(x-1,y,z).getMaterial() == Material.rock
+        if (world.getBlock(x,y,z).getMaterial() == Material.rock
+            &&world.getBlock(x-1,y,z).getMaterial() == Material.rock
             &&world.getBlock(x+1,y,z).getMaterial() == Material.rock
             &&world.getBlock(x,y-1,z).getMaterial() == Material.rock
             &&world.getBlock(x,y+1,z).getMaterial() == Material.rock
