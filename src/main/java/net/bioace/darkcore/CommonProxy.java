@@ -7,6 +7,13 @@ import net.minecraft.world.World;
  * Created by BIOACE on 18.04.2015.
  */
 public class CommonProxy {
+    public void preInit() {
+
+    }
+
+    public void init() {
+
+    }
 
 
 }

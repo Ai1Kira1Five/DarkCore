@@ -1,6 +1,7 @@
 package net.bioace.darkcore;
 
 import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -27,19 +28,20 @@ public class DarkCore {
 
     @Mod.Instance
 	public static DarkCore instance;
-   // @SidedProxy(clientSide = "net.bioace.darkcore.ClientProxy", serverSide = "net.bioace.darkcore.CommonProxy")
-   // public static CommonProxy proxy;
+    @SidedProxy(clientSide = "net.bioace.darkcore.ClientProxy", serverSide = "net.bioace.darkcore.CommonProxy")
+   public static CommonProxy proxy;
 
 
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event){
       Content.init();
-
+      proxy.preInit();
 	}
 	
 	@Mod.EventHandler
 	public void Init(FMLInitializationEvent event){
         GameRegistry.registerWorldGenerator(new WorldGen(), 0);
+        proxy.init();
 
 	}
 	

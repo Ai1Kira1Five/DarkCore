@@ -5,11 +5,9 @@ import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.bioace.darkcore.TileEntity.TEAccelerator;
+import net.bioace.darkcore.TileEntity.TECrystal;
 import net.bioace.darkcore.TileEntity.TEHeater;
-import net.bioace.darkcore.block.Accelerator;
-import net.bioace.darkcore.block.BlockDC;
-import net.bioace.darkcore.block.Heater;
-import net.bioace.darkcore.block.TestBlock;
+import net.bioace.darkcore.block.*;
 import net.bioace.darkcore.item.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -37,6 +35,7 @@ public class Content {
 
     public static BlockDC Accelerator;
     public static BlockDC Heater;
+    public static BlockDC Crystal;
 public static void init(){
 
 //Items
@@ -59,11 +58,13 @@ magiclog_top = new TestBlock("magiclog_top", Material.wood);
 magicmetal = new TestBlock("magicmetal", Material.wood);
 Accelerator = new Accelerator("Accelerator",Material.wood);
 Heater = new Heater("Heater",Material.wood);
+Crystal = new Crystal("Crystal",Material.wood);
 
 
 //TileEntity
     GameRegistry.registerTileEntity(TEAccelerator.class,"Accelerator");
     GameRegistry.registerTileEntity(TEHeater.class,"Heater");
+    GameRegistry.registerTileEntity(TECrystal.class,"Crystal");
     }
 
 /**
