@@ -1,6 +1,7 @@
 package net.bioace.darkcore.item;
 
 import net.bioace.darkcore.util.Log;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -13,6 +14,8 @@ import net.minecraft.world.chunk.Chunk;
 public class DebugWorldGen extends ItemDC {
     public DebugWorldGen(String name) {
         super(name);
+        ItemStack stack = new ItemStack(this);
+        stack.addEnchantment(Enchantment.sharpness, 4);
     }
 
     @Override
