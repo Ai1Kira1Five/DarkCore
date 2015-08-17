@@ -35,7 +35,8 @@ public class Content {
 
     public static BlockDC Accelerator;
     public static BlockDC Heater;
-    public static BlockDC Crystal;
+    public static Block Crystal;
+    public static Block TestMeta;
 public static void init(){
 
 //Items
@@ -46,19 +47,20 @@ public static void init(){
 
 //Block
  TestBlock = new TestBlock("TestBlock", Material.wood);
- magicrock_old = new TestBlock("magicrock_old", Material.wood);
- magicplank_old = new TestBlock("magicplank_old", Material.wood);
- magiclog_old = new TestBlock("magiclog_old", Material.wood);
- magiclog_top_old = new TestBlock("magiclog_top_old", Material.wood);
+ magicrock_old = new BlockDC("magicrock_old", Material.wood);
+ magicplank_old = new BlockDC("magicplank_old", Material.wood);
+ magiclog_old = new BlockDC("magiclog_old", Material.wood);
+ magiclog_top_old = new BlockDC("magiclog_top_old", Material.wood);
 
-magicrock = new TestBlock("magicrock", Material.wood);
-magicplank = new TestBlock("magicplank", Material.wood);
-magiclog = new TestBlock("magiclog", Material.wood);
-magiclog_top = new TestBlock("magiclog_top", Material.wood);
-magicmetal = new TestBlock("magicmetal", Material.wood);
+magicrock = new BlockDC("magicrock", Material.wood);
+magicplank = new BlockDC("magicplank", Material.wood);
+magiclog = new BlockDC("magiclog", Material.wood);
+magiclog_top = new BlockDC("magiclog_top", Material.wood);
+magicmetal = new BlockDC("magicmetal", Material.wood);
 Accelerator = new Accelerator("Accelerator",Material.wood);
 Heater = new Heater("Heater",Material.wood);
-Crystal = new Crystal("Crystal",Material.wood);
+Crystal = new Crystal("Crystal",Material.wood,"blank","air","water","fire","earth","pure");
+TestMeta = new BlockMetaDC("Test",Material.rock,"1","2","3");
 
 
 //TileEntity
